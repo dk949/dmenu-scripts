@@ -1,0 +1,4 @@
+#bin/sh
+
+printf "≤ ≥ ≠ ∞ ∧ ∨ ¬ ≡ ⌊ ⌋ ↓ ↑ ⇒ ⇔ → ∃ ∀ ∴ Ø ℕ ℤ ∈ ∉ ⊆ ⊂ ⊎ ∪ ∩ ↔ □ × Σ Γ Λ λ δ ε" | tr " " "\n" | dmenu | tr -d '\n' | xclip -i -selection c
+xdotool key "Control_L+V"
