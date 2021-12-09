@@ -5,15 +5,9 @@ clean:
 
 install: all
 	mkdir -p ${DESTDIR}${PREFIX}/bin/
-	install bookmark ${DESTDIR}${PREFIX}/bin/bookmark
-	install greek ${DESTDIR}${PREFIX}/bin/greek
-	install screenshot ${DESTDIR}${PREFIX}/bin/screenshot
-	install sym ${DESTDIR}${PREFIX}/bin/sym
+	$(foreach file, $(wildcard *.sh), install $(file) ${DESTDIR}${PREFIX}/bin/$(basename $(file));)
 
 uninstall:
-	rm -f ${DESTDIR}${PREFIX}/bin/bookmark
-	rm -f ${DESTDIR}${PREFIX}/bin/greek
-	rm -f ${DESTDIR}${PREFIX}/bin/screenshot
-	rm -f ${DESTDIR}${PREFIX}/bin/sym
+	$(foreach file, $(wildcard *.sh), rm -f ${DESTDIR}${PREFIX}/bin/$(basename $(file));)
 
 .PHONY: all clean install uninstall
