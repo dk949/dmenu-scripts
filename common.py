@@ -46,7 +46,7 @@ OPACITY = 0.8
 def dmenu(input: str) -> str:
     flags = ["-c", "-l", str(HEIGHT), "-g", str(WIDTH), "-fn", FONT, "-bw",
              str(BORDER), "-o", str(OPACITY)] + (["-x"] if INV_PREFIX else [])
-    res = sp.run(["../dmenu/dmenu", *flags], stdout=sp.PIPE, stderr=sp.STDOUT,
+    res = sp.run(["dmenu", *flags], stdout=sp.PIPE, stderr=sp.STDOUT,
                  input=input, encoding="utf8", text=True)
     if res.returncode != 0:
         exit(res.returncode)
