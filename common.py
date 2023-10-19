@@ -49,8 +49,6 @@ def dmenu(input: str) -> str:
     res = sp.run(["../dmenu/dmenu", *flags], stdout=sp.PIPE, stderr=sp.STDOUT,
                  input=input, encoding="utf8", text=True)
     if res.returncode != 0:
-        print(res.stdout)
-        print(res.stderr)
         exit(res.returncode)
     return res.stdout
 
